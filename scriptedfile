@@ -1,0 +1,9 @@
+def func1() {
+  echo "groovy test fun1"
+}
+def func2() {
+  echo "groovy test fun 2"
+}
+def func3() {
+  echo "groovy test fun3"
+}
