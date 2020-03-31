@@ -44,6 +44,15 @@ pipeline{
                 // define cred var in environment env
                 // you also need to add cred in jenkins credintials
                 //then you can specify cred in 
+
+                // or you define credintial is specific stage using withCredintials([this will define object]) for ex
+                withCredintials([
+                    usernamePassword(credintials: 'id1', usernameVariables: USER1 , passwordVariable: PASS1)
+                    // this will use cred with id1 and define variable USER1 with value of username in credintial stored in jenkins
+                ]) {
+                    // you can use these variables here for example 
+                    sh "ssh ${USER1}@ip uptime"
+                }
             }
         }
         post{
