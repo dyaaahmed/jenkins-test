@@ -1,3 +1,4 @@
+def gv
 variable=value // you can specify variable here and use it in pipeline, value may groovy script return boolean for ex
 // and you can use it with when
 // jenkins provide variables u can use , you can found it in jenkinsurl:8080/env-vars.html 
@@ -24,6 +25,14 @@ pipeline{
         //substitution param.parameter1 
     }
     stages{
+        stage('load groovy script'){
+            steps{
+                script{
+                   // load groovy file contain groovy script
+                   gv = load "name of file"
+                }
+            }
+        }
         stage('build'){
             // you can specify condition for example if you want to run this stage only in specific branch or you can specify if condition is true or false and you can define this condition
             when{
@@ -46,12 +55,17 @@ pipeline{
                     // or you can define variables and use it you can def vars in top of file before pipeline{}
                     env.CURRENT_BRANCH = master && env.CURRENT_BRANCH = master
                 }
+
             }
             steps{
+                script{
+                    // if u want to execute some code in groovy
+                    // define stage to load groovy script 
+                }
                 echo "testing"
             }
         }
-        stage('deplpy'){
+        stage('deploy'){
             steps{
                 // in order to connect to deploy server you need credintials
                 //steps: first you need to install credintial binding plugin and credintials plugin
