@@ -15,6 +15,14 @@ pipeline{
         // then you need to add it like this 
         maven 'Maven' // 'Maven is the name defined in jenkins'
     }
+    parameters{
+        //parametes must define in that way 
+        // type_of_paramteres may be booleanParam , choice, etc (name: , defaultvalue: , description)
+        boolean (name: parameter1 , defaultValue: true , decription: parmater1 )
+        // you can use it with when {expressions{}}
+        //or you can substitue in other things 
+        //substitution param.parameter1 
+    }
     stages{
         stage('build'){
             // you can specify condition for example if you want to run this stage only in specific branch or you can specify if condition is true or false and you can define this condition
