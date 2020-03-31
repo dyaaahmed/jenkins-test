@@ -9,6 +9,12 @@ pipeline{
         // for credintials
         SERVER_CRED = credintials(id) // id of credintial that you created in jenkins
     }
+    tools{
+        // you may want to use some tools like maven gradle or jdk
+        //if you want to make it avilable in jenkins go to jenkins >> settings >> global tools and add this tool
+        // then you need to add it like this 
+        maven 'Maven' // 'Maven is the name defined in jenkins'
+    }
     stages{
         stage('build'){
             // you can specify condition for example if you want to run this stage only in specific branch or you can specify if condition is true or false and you can define this condition
