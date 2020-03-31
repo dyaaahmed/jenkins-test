@@ -40,7 +40,7 @@ pipeline{
         stage('deplpy'){
             steps{
                 // in order to connect to deploy server you need credintials
-                //steps: first you need to install credintial binding plugin
+                //steps: first you need to install credintial binding plugin and credintials plugin
                 // define cred var in environment env
                 // you also need to add cred in jenkins credintials
                 //then you can specify cred in 
