@@ -3,6 +3,10 @@ variable=value // you can specify variable here and use it in pipeline, value ma
 // jenkins provide variables u can use , you can found it in jenkinsurl:8080/env-vars.html 
 pipeline{
     agent any
+    //you can define you own env variables like this 
+    environment {
+        NEW_ENV = '1.3.5'
+    }
     stages{
         stage('build'){
             // you can specify condition for example if you want to run this stage only in specific branch or you can specify if condition is true or false and you can define this condition
@@ -15,6 +19,8 @@ pipeline{
             }
             steps{
                 echo "building"
+                // you can substitue value of env variable that you defined 
+                ehco "${NEW_ENV}"
             }
         }
         stage('test'){
