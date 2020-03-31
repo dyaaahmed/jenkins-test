@@ -6,6 +6,8 @@ pipeline{
     //you can define you own env variables like this 
     environment {
         NEW_ENV = '1.3.5'
+        // for credintials
+        SERVER_CRED = credintials(id) // id of credintial that you created in jenkins
     }
     stages{
         stage('build'){
@@ -37,7 +39,11 @@ pipeline{
         }
         stage('deplpy'){
             steps{
-                echo "deploying"
+                // in order to connect to deploy server you need credintials
+                //steps: first you need to install credintial binding plugin
+                // define cred var in environment env
+                // you also need to add cred in jenkins credintials
+                //then you can specify cred in 
             }
         }
         post{
