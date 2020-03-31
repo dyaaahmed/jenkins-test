@@ -1,4 +1,4 @@
-def gv
+def gv // this variable will load scripted file
 variable=value // you can specify variable here and use it in pipeline, value may groovy script return boolean for ex
 // and you can use it with when
 // jenkins provide variables u can use , you can found it in jenkinsurl:8080/env-vars.html 
@@ -61,6 +61,8 @@ pipeline{
                 script{
                     // if u want to execute some code in groovy
                     // define stage to load groovy script 
+                    gv.func1()
+                    // this will execute function 1 loaded from scripted file
                 }
                 echo "testing"
             }
